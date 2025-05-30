@@ -1,6 +1,5 @@
-## MoQT Validator
+MoQT Validator
 
-## Directory structure
 moqt-validator/
 ├── cmd/
 │   └── moqt-validator/
