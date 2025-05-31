@@ -1,33 +1,25 @@
 MoQT Validator
 
 moqt-validator/
-├── cmd/
-│   └── moqt-validator/
-│       └── main.go              # CLI entry point
-├── pkg/
+├── CMakeLists.txt              # CMake build configuration
+├── include/
 │   └── moqt/
-│       ├── constants.go         # All protocol constants
-│       ├── types.go            # Core types and structures
-│       ├── errors.go           # Error definitions
-│       ├── varint.go           # VarInt encoding/decoding
-│       ├── validator.go        # Main validator struct and methods
-│       ├── control.go          # Control message validation
-│       ├── data.go             # Data stream validation
-│       ├── datagram.go         # Datagram validation
-│       ├── parameters.go       # Parameter parsing
-│       ├── auth.go             # Authorization token handling
-│       ├── extensions.go       # Extension header validation
-│       └── helpers.go          # Utility functions
-├── internal/
-│   └── cli/
-│       └── output.go           # CLI output formatting
+│       ├── common.hpp          # Common utilities: varint, error types, etc.
+│       ├── control_parser.hpp  # Interfaces and structures for control parsing
+│       ├── message_types.hpp   # Constants/enums for message types
+│       └── validator.hpp       # API entry points for validation
+├── src/
+│   ├── common.cpp              # Implements varint reader, helpers
+│   ├── control_parser.cpp      # Implementations for control messages
+│   ├── validator.cpp           # validate_control_message logic
+│   └── main.cpp                # CLI/test driver
 ├── test/
-│   ├── testdata/               # Test message samples
-│   ├── validator_test.go       # Main validator tests
-│   ├── control_test.go         # Control message tests
-│   ├── data_test.go           # Data stream tests
-│   └── datagram_test.go       # Datagram tests
-├── go.mod
-├── go.sum
-├── README.md
-└── Makefile
+│   ├── test_utils.cpp          # Test harness
+│   ├── control_tests.cpp       # Unit tests for control parsing
+│   └── data_tests.cpp          # Future: data stream parsing tests
+├── data/
+│   └── samples/                # Binary test vectors
+├── scripts/
+│   └── gen_test_vectors.py     # Optional: scripts to generate encoded inputs
+└── README.md
+
