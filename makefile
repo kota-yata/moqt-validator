@@ -1,4 +1,4 @@
-BUILD_DIR := build
+BUILD_DIR := _build
 CMAKE := cmake
 MAKE := make
 
